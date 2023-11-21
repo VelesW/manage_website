@@ -278,6 +278,29 @@ body {
   border: 0;
 }
 
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - var(--padding) * 2);
+}
+
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3rem);
+}
+
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 50rem) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
 .text-primary-400 {
   color: var(--clr-primary-400);
 }
